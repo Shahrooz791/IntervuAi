@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intervu_ai/controllers/auth_controller.dart';
+import 'package:intervu_ai/controllers/home_controller.dart';
 import 'package:intervu_ai/core/utils/routes.dart';
 import 'package:intervu_ai/core/utils/size_utils.dart';
 
@@ -20,6 +22,10 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             colorScheme: .fromSeed(seedColor: Colors.deepPurple),
           ),
+          initialBinding: BindingsBuilder(() {
+            Get.put(HomeController(), permanent: true);
+            Get.put(AuthController(), permanent: true);
+          }),
           initialRoute: '/',
           getPages: AppRoutes.pages,
         );

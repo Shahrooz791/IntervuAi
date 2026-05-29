@@ -48,7 +48,13 @@ class AppColors {
   static const Color iconBgPurple = Color(0xFF2D1B69);
   static const Color iconBgTeal = Color(0xFF134E4A);
 
-  // Overlay
+  // Status Colors
+  static const Color errorRed = Color(0xFFEF4444);
+  static const Color successGreen = Color(0xFF22C55E);
+  static const Color warningAmber = Color(0xFFF59E0B);
+
+  // Misc
+  static const Color white = Color(0xFFFFFFFF);
   static const Color overlay = Color(0x80000000);
   static const Color shimmer = Color(0x1AFFFFFF);
 
