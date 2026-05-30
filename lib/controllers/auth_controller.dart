@@ -63,22 +63,27 @@ class AuthController extends GetxController {
     isLoginLoading.value = true;
     await Future.delayed(const Duration(milliseconds: 1800));
     isLoginLoading.value = false;
+    // Login goes directly to home (existing user, profile already set)
     Get.offAllNamed(AppRoutes.home);
   }
 
   Future<void> signup() async {
     if (!signupFormKey.currentState!.validate()) return;
     if (!agreedToTerms.value) {
-      Get.snackbar('Terms Required', 'Please agree to Terms of Service',
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: const Color(0xFF1E293B),
-          colorText: Colors.white);
+      Get.snackbar(
+        'Terms Required',
+        'Please agree to Terms of Service',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: const Color(0xFF1E293B),
+        colorText: Colors.white,
+      );
       return;
     }
     isSignupLoading.value = true;
     await Future.delayed(const Duration(milliseconds: 1800));
     isSignupLoading.value = false;
-    Get.offAllNamed(AppRoutes.home);
+    // After signup → profile setup screen (new user flow)
+    Get.offAllNamed(AppRoutes.profileSetup);
   }
 
   Future<void> sendResetLink() async {
