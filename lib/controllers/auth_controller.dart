@@ -63,7 +63,7 @@ class AuthController extends GetxController {
     isLoginLoading.value = true;
     await Future.delayed(const Duration(milliseconds: 1800));
     isLoginLoading.value = false;
-    Get.offNamed(AppRoutes.home);
+    Get.offAllNamed(AppRoutes.home);
   }
 
   Future<void> signup() async {
@@ -78,7 +78,7 @@ class AuthController extends GetxController {
     isSignupLoading.value = true;
     await Future.delayed(const Duration(milliseconds: 1800));
     isSignupLoading.value = false;
-    Get.offNamed(AppRoutes.home);
+    Get.offAllNamed(AppRoutes.home);
   }
 
   Future<void> sendResetLink() async {

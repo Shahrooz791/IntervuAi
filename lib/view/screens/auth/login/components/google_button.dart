@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intervu_ai/core/constants/app_colors.dart';
+import 'package:intervu_ai/core/constants/images_assets.dart';
 import 'package:intervu_ai/core/utils/size_utils.dart';
 import 'package:intervu_ai/view/widgets/app_text.dart';
 
@@ -78,56 +80,8 @@ class _GoogleIcon extends StatelessWidget {
     return SizedBox(
       width: 22.h,
       height: 22.h,
-      child: CustomPaint(painter: _GoogleLogoPainter()),
+      child: SvgPicture.asset(ImagesAssets.googleIcon),
     );
   }
 }
 
-class _GoogleLogoPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final cx = size.width / 2;
-    final cy = size.height / 2;
-    final r = size.width / 2;
-
-    final redPaint = Paint()..color = const Color(0xFFEA4335);
-    final bluePaint = Paint()..color = const Color(0xFF4285F4);
-    final greenPaint = Paint()..color = const Color(0xFF34A853);
-    final yellowPaint = Paint()..color = const Color(0xFFFBBC05);
-
-    canvas.drawArc(
-      Rect.fromCircle(center: Offset(cx, cy), radius: r),
-      -1.57,
-      3.14,
-      false,
-      redPaint..style = PaintingStyle.stroke ..strokeWidth = size.width * 0.22,
-    );
-    canvas.drawArc(
-      Rect.fromCircle(center: Offset(cx, cy), radius: r),
-      1.57,
-      1.05,
-      false,
-      greenPaint..style = PaintingStyle.stroke ..strokeWidth = size.width * 0.22,
-    );
-    canvas.drawArc(
-      Rect.fromCircle(center: Offset(cx, cy), radius: r),
-      2.62,
-      1.05,
-      false,
-      yellowPaint..style = PaintingStyle.stroke ..strokeWidth = size.width * 0.22,
-    );
-
-    final rectPaint = Paint()..color = const Color(0xFF4285F4);
-    canvas.drawRect(
-      Rect.fromLTWH(cx, cy - size.height * 0.14, r + 2, size.height * 0.28),
-      rectPaint,
-    );
-    canvas.drawRect(
-      Rect.fromLTWH(cx - r * 0.3, cy - size.height * 0.14, r * 1.3, size.height * 0.28),
-      rectPaint,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}

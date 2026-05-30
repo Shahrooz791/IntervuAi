@@ -82,16 +82,11 @@ class _GreetingCardState extends State<GreetingCard>
             children: [
               _buildStreakBadge(),
               Gap.v(12),
-              Row(
-                children: [
-                  AppText(
-                    text: '${widget.greeting} ${widget.userName} ',
-                    fontSize: 22.fSize,
-                    fontWeight: FontWeight.w800,
-                    color: AppColors.textPrimary,
-                  ),
-                  const Text('👋', style: TextStyle(fontSize: 20)),
-                ],
+              AppText(
+                text: '${widget.greeting} ${widget.userName} 👋',
+                fontSize: 22.fSize,
+                fontWeight: FontWeight.w800,
+                color: AppColors.textPrimary,
               ),
               Gap.v(6),
               AppText(

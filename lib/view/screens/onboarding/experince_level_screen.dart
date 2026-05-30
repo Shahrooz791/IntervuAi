@@ -423,7 +423,7 @@ class _ExperienceLevelScreenState extends State<ExperienceLevelScreen>
             text: "Let's Begin 🚀",
             onTap: () {
               Get.find<HomeController>().selectedLevel.value = _selectedLevel;
-              Get.offAllNamed('/home');
+              Get.offAllNamed('/login');
             },
           ),
         ),
