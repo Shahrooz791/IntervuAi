@@ -1,4 +1,6 @@
+
 import 'package:get/get.dart';
+import 'package:intervu_ai/controllers/mock_interview_controller.dart';
 
 class PracticeController extends GetxController {
   final RxString dailyChallengeTitle = 'Backend Dev — Hard Mode'.obs;
@@ -6,121 +8,59 @@ class PracticeController extends GetxController {
   final RxBool aiRecommendationEnabled = false.obs;
 
   final RxList<Map<String, dynamic>> roleCards = <Map<String, dynamic>>[
-    {
-      'role': 'Flutter',
-      'badge': '98% BEST',
-      'isBest': true,
-      'icon': 'phone_android',
-    },
-    {
-      'role': 'Backend',
-      'badge': '85% BEST',
-      'isBest': true,
-      'icon': 'dns',
-    },
-    {
-      'role': 'Frontend',
-      'badge': 'NEW',
-      'isBest': false,
-      'icon': 'web',
-    },
+    {'role': 'Flutter', 'badge': '98% BEST', 'isBest': true},
+    {'role': 'Backend', 'badge': '85% BEST', 'isBest': true},
+    {'role': 'Frontend', 'badge': 'NEW', 'isBest': false},
+    {'role': 'iOS Dev', 'badge': 'NEW', 'isBest': false},
+    {'role': 'Full Stack', 'badge': 'HOT', 'isBest': true},
   ].obs;
 
-  final RxList<Map<String, dynamic>> practiceModes = <Map<String, dynamic>>[
-    {
-      'icon': 'mic_rounded',
-      'title': 'Mock Interview',
-      'subtitle': 'Full AI simulation',
-      'isFeatured': true,
-    },
-    {
-      'icon': 'description_outlined',
-      'title': 'Resume Prep',
-      'subtitle': 'Roast & Refine',
-      'isFeatured': false,
-    },
-    {
-      'icon': 'business_outlined',
-      'title': 'Company Mode',
-      'subtitle': 'Top-tier Prep',
-      'isFeatured': false,
-    },
-    {
-      'icon': 'bolt',
-      'title': 'Quick Quiz',
-      'subtitle': 'Daily Streaks',
-      'isFeatured': false,
-    },
-    {
-      'icon': 'psychology',
-      'title': 'Behavioral',
-      'subtitle': 'Soft Skills',
-      'isFeatured': false,
-    },
-  ].obs;
+  void _ensureController() {
+    if (!Get.isRegistered<MockInterviewController>()) {
+      Get.put(MockInterviewController());
+    }
+  }
 
   void onStartDailyChallenge() {
-    Get.snackbar(
-      'Daily Challenge',
-      'Starting Backend Dev Hard Mode...',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    _ensureController();
+    Get.toNamed('/mock-interview');
   }
 
   void onMockInterviewTap() {
-    Get.snackbar(
-      'Mock Interview',
-      'Starting AI voice session...',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    _ensureController();
+    Get.toNamed('/mock-interview');
   }
 
   void onResumePrepTap() {
-    Get.snackbar(
-      'Resume Prep',
-      'Upload your resume to get feedback',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    _ensureController();
+    Get.toNamed('/resume-prep');
   }
 
   void onCompanyModeTap() {
-    Get.snackbar(
-      'Company Mode',
-      'Preparing company-specific questions...',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    _ensureController();
+    Get.toNamed('/company-prep');
   }
 
   void onQuickQuizTap() {
-    Get.snackbar(
-      'Quick Quiz',
-      'Daily brain warm-up starting...',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    _ensureController();
+    Get.toNamed('/mock-interview');
   }
 
   void onBehavioralTap() {
-    Get.snackbar(
-      'Behavioral',
-      'Soft skills practice starting...',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    _ensureController();
+    Get.toNamed('/mock-interview');
   }
 
   void onRoleTap(String role) {
-    Get.snackbar(
-      role,
-      'Loading $role questions...',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    _ensureController();
+    final ctrl = Get.find<MockInterviewController>();
+    ctrl.selectRole(role);
+    Get.toNamed('/mock-interview');
   }
 
   void onExploreRecommendation() {
-    Get.snackbar(
-      'AI Recommendation',
-      'Exploring State Management Deep Dive...',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    _ensureController();
+    Get.toNamed('/mock-interview');
   }
 
   void toggleAiRecommendation(bool val) {
