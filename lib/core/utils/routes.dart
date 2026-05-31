@@ -8,6 +8,8 @@ import 'package:intervu_ai/view/screens/onboarding/experince_level_screen.dart';
 import 'package:intervu_ai/view/screens/onboarding/onboarding.dart';
 import 'package:intervu_ai/view/screens/onboarding/profile_setup.dart';
 import 'package:intervu_ai/view/screens/onboarding/role_section_screen.dart';
+import 'package:intervu_ai/view/screens/profile/edit_profile/edit_profile.dart';
+import 'package:intervu_ai/view/screens/profile/settings/settings.dart';
 import 'package:intervu_ai/view/screens/splash/splash.dart';
 
 class AppRoutes {
@@ -21,6 +23,8 @@ class AppRoutes {
   static const String profileSetup = '/profile-setup';
   static const String home = '/home';
   static const String notifications = '/notifications';
+  static const String settings = '/settings';
+  static const String editProfile = '/edit-profile';
 
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -43,5 +47,18 @@ class AppRoutes {
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 300),
     ),
+    GetPage(
+      name: settings,
+      page: () => const SettingsScreen(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: editProfile,
+      page: () => const EditProfileScreen(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
   ];
 }
+

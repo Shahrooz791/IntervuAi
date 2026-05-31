@@ -6,7 +6,7 @@ import 'package:intervu_ai/core/utils/bottom_nav_bar.dart';
 import 'package:intervu_ai/view/screens/history/history.dart';
 import 'package:intervu_ai/view/screens/home/home/home.dart';
 import 'package:intervu_ai/view/screens/practice/practice.dart';
-import 'package:intervu_ai/view/screens/profile/profile.dart';
+import 'package:intervu_ai/view/screens/profile/profile/profile.dart';
 
 class MainShell extends StatelessWidget {
   const MainShell({super.key});
