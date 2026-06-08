@@ -21,7 +21,7 @@ class _MockInterviewScreenState extends State<MockInterviewScreen>
   late List<Animation<double>> _fadeAnims;
   late List<Animation<Offset>> _slideAnims;
 
-  final _ctrl = Get.put(MockInterviewController());
+  final _ctrl = Get.isRegistered<MockInterviewController>() ? Get.find<MockInterviewController>() : Get.put(MockInterviewController());
   static const int _count = 6;
 
   @override

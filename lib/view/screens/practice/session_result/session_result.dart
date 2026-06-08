@@ -20,7 +20,7 @@ class _SessionResultScreenState extends State<SessionResultScreen>
   late List<Animation<double>> _fadeAnims;
   late List<Animation<Offset>> _slideAnims;
 
-  final _ctrl = Get.find<MockInterviewController>();
+  final _ctrl = Get.isRegistered<MockInterviewController>() ? Get.find<MockInterviewController>() : Get.put(MockInterviewController());
   static const int _count = 5;
 
   @override

@@ -18,7 +18,7 @@ class _LiveSessionScreenState extends State<LiveSessionScreen>
   late AnimationController _entryCtrl;
   late Animation<double> _fade;
 
-  final _ctrl = Get.find<MockInterviewController>();
+  final _ctrl = Get.isRegistered<MockInterviewController>() ? Get.find<MockInterviewController>() : Get.put(MockInterviewController());
 
   @override
   void initState() {

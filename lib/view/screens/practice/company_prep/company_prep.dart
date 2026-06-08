@@ -21,7 +21,7 @@ class _CompanyPrepScreenState extends State<CompanyPrepScreen>
   late Animation<double> _fade;
   late Animation<Offset> _slide;
 
-  final _ctrl = Get.find<MockInterviewController>();
+  final _ctrl = Get.isRegistered<MockInterviewController>() ? Get.find<MockInterviewController>() : Get.put(MockInterviewController());
 
   @override
   void initState() {
